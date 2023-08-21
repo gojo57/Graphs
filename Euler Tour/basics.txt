@@ -1,0 +1,11 @@
+EULER TOUR
+--> A tour that visits every edge exactly once and returns to the starting vertex.
+--> A graph has an Euler tour if and only if it is connected and every vertex has even degree.
+--> For a graph having N vertices and E edges, where E = N-1, total time for the Euler tour will be 2*N-1 or 2*N.
+
+Now some questions arise, eg:
+1. Is x an ancestor of y in the tree?
+2. Whether y is in subtree of x or not?
+3. Whether x comes in path from y to root?
+
+--> If time in of x is less than time in of y and time out of x is greater than time out of y, then x is an ancestor of y.

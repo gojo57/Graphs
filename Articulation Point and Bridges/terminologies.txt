@@ -1,0 +1,8 @@
+1) Lowest time --> Minimum discovery time of a vertex that a backedge is pointing to.
+2) DFS Tree
+3) Backedge --> An edge that points to a vertex that has already been visited.
+4) Discovered time --> The time at which a vertex is discovered on dfs traversal.
+5) Articulation point --> A vertex that when removed from the graph, increases the number of connected components.
+6) Bridge --> An edge that when removed from the graph, increases the number of connected components.
+7) For an articulation point, the lowest time of a vertex/child of the supposed articulation point is more than or equal to the discovered time of the vertex(which is assumed to be the articulation point).
+8) For a bridge, the lowest time of a child vertex (in the subtree of the articulation point) is more than the discovered time of the vertex (which is assumed to be the articulation point).

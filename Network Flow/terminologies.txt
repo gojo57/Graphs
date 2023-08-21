@@ -1,0 +1,37 @@
+Flow-->Flow is the exact amount of material flowing thorugh the edge
+Capacity-->Capacity is the maximum amount of material that can flow through the edge
+Residual Capacity-->Residual Capacity is the amount of material that can still flow through the edge
+                 -->Residual Capacity =Total Capacity - Flow
+Augmented Path-->Augmented Path is a path from source to sink such that all the edges in the path have positive residual capacity
+
+FORD FULKERSON ALGORITHM
+1) Flow cannot exceed capacity of an edge.
+2) Flow into a node is equal to flow out of a node, except for source and sink.
+3) Maximum flow from source to sink is equal to edge with minimum weight in the augmented path.
+4) Any path should have a non zero backward edge and a non full forward edge.
+
+Algorithm:
+1) Setup the directed residual graph with edge capacity = original graph weight.
+2) Initialize the variable maxflow = 0
+3) while(there is an augmented path from source to sink)
+    {
+        find the minimum residual capacity/edge weight in the augmented path = f
+        decrease the residual capacity of the forward edges by f
+        increase the residual capacity of the backward edges by f
+        update the maxflow (maxflow = maxflow + f)
+    }
+4) return maxflow
+
+Example dry run for the above algorithm:
+https://www.youtube.com/watch?v=GiN3jRdgxU4
+
+Here, we use dfs to find the augmented path from source to sink.
+Usage of bfs in Ford Fulkerson Algorithm is also called as Edmonds Karp Algorithm.
+
+MIN CUT PROBLEM
+1) In a flow network, an S-T cut is a cut that requires the source and the sink to be in different subsets. S is the source component whereas T is the sink component. It consists of all the edges going from the source component to the sink component.
+2) The capacity of an S-T cut is defined by the sum of the capacity of each edge in the cut-set.
+3) The minimum cut problem is to find the S-T cut with the smallest capacity. We use Ford Fulkerson Algorithm to solve this problem:
+    a) Run the Ford Fulkerson Algorithm and calculate the final residual graph.
+    b) Find the set of values that are reachable from the source in the residual graph.
+    c) All the edges which are non reachable vertex from a reachable vertex are the edges that form the min cut-set.

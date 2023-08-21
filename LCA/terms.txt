@@ -1,0 +1,11 @@
+SPARSE TABLE
+--> Performs range query int logn
+--> Idempotent functions range query in O(1), eg. max in range [l,r], gcd in range [l,r], etc.
+--> Idempotent function: Function whose operation results remain unchanged when an operation is applied more than once.
+--> Updation is not possible in sparse table.
+--> Structure:
+    a) 2D array, n*m
+    b) n = length of array
+    c) m = ceil(logn)+1
+    d) mat[i][j] = [i, i+2^j-1], if I start at I the answer for the range [i, i+2^j-1] is stored in mat[i][j]
+    e) [i, i+2^j-1] = [i, i+2^(j-1)-1] + [i+2^(j-1), i+2^j-1]
