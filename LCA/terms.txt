@@ -9,3 +9,14 @@ SPARSE TABLE
     c) m = ceil(logn)+1
     d) mat[i][j] = [i, i+2^j-1], if I start at I the answer for the range [i, i+2^j-1] is stored in mat[i][j]
     e) [i, i+2^j-1] = [i, i+2^(j-1)-1] + [i+2^(j-1), i+2^j-1]
+
+BINARY LIFTING:
+--> parent[i][j] = 2^jth parent of i
+--> parent[i][j] = parent[parent[i][j-1]][j-1]
+--> eg, to calculate 13th parent of x, we can calculate 8th parent of x, then 4th parent of 8th parent of x, then 1st parent of 4th parent of 8th parent of x. 
+    => 13 = 8 + 4 + 1
+
+TIME IN AND TIME OUT:
+--> Time in: When I enter a node
+--> Time out: When I exit a node
+--> For x to be an ancestor of y, time in[x] <= time in[y] and time out[x] >= time out[y].
